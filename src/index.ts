@@ -4,18 +4,20 @@ const UserAgents = require('user-agents');
 export class DomainServices {
     private browser: puppeteer.Browser = null;
 
-    public async init(
+    constructor(
+        headLess: boolean = true
+    ) {
+        this.init(headLess)
+            .then();
+    }
+
+    private async init(
         headLess: boolean = true
     ) {
         this.browser = await puppeteer.launch({
             headless: headLess,
             defaultViewport: null
         });
-    }
-
-    private dispose() {
-        this.browser.close();
-        this.browser = null;
     }
 
     public async isDomainAvailable(
