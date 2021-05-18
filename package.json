@@ -2,6 +2,7 @@
     "name": "valexe.lookup.services",
     "version": "1.0.0",
     "description": "Business Services for Lookup",
+    "type": "module",
     "main": "index.js",
     "scripts": {
         "build": "tsc -p ."
