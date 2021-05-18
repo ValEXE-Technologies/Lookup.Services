@@ -2,14 +2,26 @@ import * as puppeteer from 'puppeteer';
 const UserAgents = require('user-agents');
 
 export class DomainServices {
+    private browser: puppeteer.Browser = null;
+
+    public async init(
+        headLess: boolean = true
+    ) {
+        this.browser = await puppeteer.launch({
+            headless: headLess,
+            defaultViewport: null
+        });
+    }
+
+    private dispose() {
+        this.browser.close();
+        this.browser = null;
+    }
+
     public async isDomainAvailable(
         domainNameWithTLD: string
     ): Promise<boolean> {
-        let browser = await puppeteer.launch({
-            headless: true,
-            defaultViewport: null
-        });
-        let page = await browser.newPage();
+        let page = await this.browser.newPage();
         let url = `https://in.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=${domainNameWithTLD}`;
 
         await page.setUserAgent(new UserAgents().toString());
@@ -32,7 +44,6 @@ export class DomainServices {
             returnValue = false;
         } finally {
             page.close();
-            browser.close();
         }
 
         return returnValue;
