@@ -1,0 +1,18 @@
+{
+    "name": "valexe.lookup.services",
+    "version": "1.0.0",
+    "description": "Business Services for Lookup",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc -p ."
+    },
+    "author": "Indrajeet Valera",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^4.2.4"
+    },
+    "dependencies": {
+        "puppeteer": "^9.1.1",
+        "user-agents": "^1.0.655"
+    }
+}
