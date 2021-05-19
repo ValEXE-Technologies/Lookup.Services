@@ -1,5 +1,5 @@
 {
-    "name": "valexe.lookup.services",
+    "name": "lookup.services",
     "version": "1.0.0",
     "description": "Business Services for Lookup",
     "type": "module",
