@@ -10,6 +10,7 @@ export class GoDaddyWhoIsRegisrar implements WhoIsRegistrar {
     async isDomainAvailable(
         browser: Browser,
         domainNameWithTLD: string): Promise<boolean> {
+            
         let page = await browser.newPage();
         let url = `${this.baseUrl}/domainsearch/find?checkAvail=1&domainToCheck=${domainNameWithTLD}`;
 

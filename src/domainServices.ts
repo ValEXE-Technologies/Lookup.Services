@@ -12,7 +12,7 @@ import {
 const WHOIS_DOMAIN_REGISTRAR: WhoIsRegistrar = new GoDaddyWhoIsRegisrar();
 
 const SUPPORTED_DOMAIN_REGISTRARS: { [key: string]: DomainRegistrar } = {
-    ['GoDaddy']: new GoDaddyDomainRegistrar()
+    ['godaddy']: new GoDaddyDomainRegistrar()
 }
 
 export class DomainServices {
@@ -52,8 +52,7 @@ export class DomainServices {
         domainNameWithTLD: string,
         currency: string = 'USD'
     ): Promise<DomainPrice> {
-        let domainRegistrar = SUPPORTED_DOMAIN_REGISTRARS[registrar];
-
+        let domainRegistrar = SUPPORTED_DOMAIN_REGISTRARS[registrar.toLowerCase()];
         if (domainRegistrar !== undefined) {
             return await domainRegistrar.getDomainPrice(this.browser, domainNameWithTLD, currency);
         }
