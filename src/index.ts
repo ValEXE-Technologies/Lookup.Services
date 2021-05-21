@@ -1,2 +1,2 @@
-export * from './models';
+export * from './registrars';
 export * from './domainServices';
