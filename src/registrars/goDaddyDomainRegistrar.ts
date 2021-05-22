@@ -12,7 +12,9 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
     public properties: Registrar = {
         name: 'GoDaddy',
         baseUrl: 'https://in.godaddy.com',
-        features: []
+        features: [
+            'Basic DNS'
+        ]
     };
 
     public async getDomainPrice(
@@ -39,9 +41,7 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         }
 
         return {
-            domainNameWithTLD: domainNameWithTLD,
             url: url,
-            currency: currency,
             price: this.extractPrice(innerHtml)
         };
     }

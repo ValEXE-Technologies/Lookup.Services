@@ -7,9 +7,7 @@ export type Registrar = {
 }
 
 export type DomainPrice = {
-    domainNameWithTLD: string;
     url: string;
-    currency: string;
     price: number;
 }
 

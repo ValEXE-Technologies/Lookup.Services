@@ -6,13 +6,15 @@ import {
     GoDaddyWhoIsRegisrar,
     DomainPrice,
     DomainRegistrar,
-    GoDaddyDomainRegistrar
+    GoDaddyDomainRegistrar,
+    BigRockDomainRegistrar
 } from './';
 
 const WHOIS_DOMAIN_REGISTRAR: WhoIsRegistrar = new GoDaddyWhoIsRegisrar();
 
 const SUPPORTED_DOMAIN_REGISTRARS: { [key: string]: DomainRegistrar } = {
-    ['godaddy']: new GoDaddyDomainRegistrar()
+    ['godaddy']: new GoDaddyDomainRegistrar(),
+    ['bigrock']: new BigRockDomainRegistrar()
 }
 
 export class DomainServices {
