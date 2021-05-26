@@ -34,8 +34,7 @@ export class DomainServices {
         this.domainRegistrars = Object.keys(SUPPORTED_DOMAIN_REGISTRARS)
             .map((key) => SUPPORTED_DOMAIN_REGISTRARS[key].properties);
         this.browser = await puppeteer.launch({
-            headless: headLess,
-            defaultViewport: null
+            headless: headLess
         });
     }
 

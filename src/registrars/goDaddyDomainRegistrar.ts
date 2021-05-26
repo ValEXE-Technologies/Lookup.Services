@@ -1,4 +1,4 @@
-import { Browser } from 'puppeteer';
+import { Browser, Page } from 'puppeteer';
 import * as UserAgents from 'user-agents';
 
 import {
@@ -27,6 +27,11 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         let url = `${this.properties.baseUrl}/domainsearch/find?checkAvail=1&domainToCheck=${domainNameWithTLD}`;
 
         await page.setUserAgent(new UserAgents().toString());
+        await page.goto(this.properties.baseUrl, {
+            waitUntil: 'networkidle2'
+        });
+        await this.changeCurrency(page, currency);
+
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });
@@ -44,5 +49,27 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
             url: url,
             price: this.extractPrice(innerHtml)
         };
+    }
+
+    private async changeCurrency(
+        page: Page,
+        currency: string
+    ): Promise<void> {
+        let innerHtml = await page.$eval('#currentCurrency', (el) => el.innerHTML);
+        if (null == innerHtml) {
+            return;
+        }
+
+        innerHtml = innerHtml.toUpperCase();
+        currency = currency.toUpperCase();
+        if (innerHtml.includes(currency)) {
+            return;
+        }
+
+        await page.evaluate(() => {
+            document
+                .querySelector<HTMLButtonElement>(`button[data-currencyid='USD']`)
+                .click();
+        });
     }
 }
