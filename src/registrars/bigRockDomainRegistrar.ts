@@ -12,6 +12,10 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
     public properties: Registrar = {
         name: 'BigRock',
         baseUrl: 'https://www.bigrock.in',
+        currencyCodes: [
+            "INR",
+            "USD"
+        ],
         features: [
             'Basic DNS',
             '2 Email Accounts',

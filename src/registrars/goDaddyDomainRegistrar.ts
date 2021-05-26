@@ -12,6 +12,10 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
     public properties: Registrar = {
         name: 'GoDaddy',
         baseUrl: 'https://in.godaddy.com',
+        currencyCodes: [
+            "INR",
+            "USD"
+        ],
         features: [
             'Basic DNS'
         ]

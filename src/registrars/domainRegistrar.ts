@@ -3,6 +3,7 @@ import { Browser } from 'puppeteer';
 export type Registrar = {
     name: string;
     baseUrl: string;
+    currencyCodes: string[];
     features: string[];
 }
 

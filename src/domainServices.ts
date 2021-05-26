@@ -44,14 +44,16 @@ export class DomainServices {
         return await WHOIS_DOMAIN_REGISTRAR.isDomainAvailable(this.browser, domainNameWithTLD);
     }
 
-    public async supportedDomains(): Promise<Registrar[]> {
-        return this.domainRegistrars;
+    public async domainRegistrarsByCurrency(
+        currencyCode: string
+    ): Promise<Registrar[]> {
+        return await this.domainRegistrars.filter((registrar) => registrar.currencyCodes.includes(currencyCode));
     }
 
     public async domainPrice(
         registrar: string,
         domainNameWithTLD: string,
-        currency: string = 'USD'
+        currency: string
     ): Promise<DomainPrice> {
         let domainRegistrar = SUPPORTED_DOMAIN_REGISTRARS[registrar.toLowerCase()];
         if (domainRegistrar !== undefined) {
