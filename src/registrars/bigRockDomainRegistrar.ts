@@ -13,8 +13,7 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         name: 'BigRock',
         baseUrl: 'https://www.bigrock.in',
         currencyCodes: [
-            "INR",
-            "USD"
+            "INR"
         ],
         features: [
             'Basic DNS',
