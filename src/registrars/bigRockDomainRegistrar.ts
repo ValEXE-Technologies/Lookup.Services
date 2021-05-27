@@ -1,4 +1,4 @@
-import { Browser } from 'puppeteer';
+import { Browser, Page } from 'puppeteer';
 import * as UserAgents from 'user-agents';
 
 import {
@@ -13,7 +13,8 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         name: 'BigRock',
         baseUrl: 'https://www.bigrock.in',
         currencyCodes: [
-            "INR"
+            "INR",
+            "USD"
         ],
         features: [
             'Basic DNS',
@@ -37,6 +38,9 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });
+
+        await this.changeCurrency(page, currency);
+
         await page.waitForSelector('input[name=txtDomainName]');
         await page.type('input[name=txtDomainName]', domainNameWithTLD);
         await page.keyboard.press('Enter');
@@ -55,5 +59,16 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
             url: this.properties.baseUrl,
             price: this.extractPrice(innerHtml)
         };
+    }
+
+    private async changeCurrency(
+        page: Page,
+        currency: string
+    ): Promise<void> {
+        if ('IND' == currency) {
+            return;
+        }
+
+        await page.select('#country_dropdown', 'US');
     }
 }
