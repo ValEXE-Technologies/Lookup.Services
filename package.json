@@ -4,6 +4,10 @@
     "description": "Business Services for Lookup",
     "type": "module",
     "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ValEXE-Technologies/Lookup.Services"
+    },
     "scripts": {
         "build": "tsc -p ."
     },
