@@ -59,7 +59,7 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         page: Page,
         currency: string
     ): Promise<void> {
-        let innerHtml = await page.$eval('#currentCurrency', (el) => el.innerHTML);
+        let innerHtml = await page.$eval('div > #currentCurrency', (el) => el.innerHTML);
         if (null == innerHtml) {
             return;
         }
@@ -70,10 +70,10 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
             return;
         }
 
-        await page.evaluate(() => {
+        await page.evaluate((currency) => {
             document
-                .querySelector<HTMLButtonElement>(`button[data-currencyid='USD']`)
+                .querySelector<HTMLButtonElement>(`button[data-currencyid='${currency}']`)
                 .click();
-        });
+        }, currency);
     }
 }
