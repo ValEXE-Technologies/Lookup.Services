@@ -41,8 +41,8 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
 
         await this.changeCurrency(page, currency);
 
-        await page.waitForSelector('input[name=txtDomainName]');
-        await page.type('input[name=txtDomainName]', domainNameWithTLD);
+        await page.waitForSelector('div#section1 > div > input[name=txtDomainName]');
+        await page.type('div#section1 > div > input[name=txtDomainName]', domainNameWithTLD);
         await page.keyboard.press('Enter');
         await page.waitForNavigation();
 
@@ -65,7 +65,7 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         page: Page,
         currency: string
     ): Promise<void> {
-        if ('IND' == currency) {
+        if ('INR' == currency) {
             return;
         }
 
