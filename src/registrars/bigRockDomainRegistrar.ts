@@ -50,7 +50,7 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         page.close();
         
         if (null == innerHtml) {
-            console.warn(`Failed to get Element for BigRock Price`);
+            console.warn(`Failed to get Element for ${this.properties.name} Price`);
 
             return null;
         }
