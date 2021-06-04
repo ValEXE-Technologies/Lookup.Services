@@ -8,7 +8,8 @@ import {
     DomainRegistrar,
     GoDaddyDomainRegistrar,
     BigRockDomainRegistrar,
-    NettigrittyDomainRegistrar
+    NettigrittyDomainRegistrar,
+    TwoGBHostingDomainRegistrar
 } from './';
 
 const WHOIS_DOMAIN_REGISTRAR: WhoIsRegistrar = new GoDaddyWhoIsRegisrar();
@@ -16,7 +17,8 @@ const WHOIS_DOMAIN_REGISTRAR: WhoIsRegistrar = new GoDaddyWhoIsRegisrar();
 const SUPPORTED_DOMAIN_REGISTRARS: { [key: string]: DomainRegistrar } = {
     ['godaddy']: new GoDaddyDomainRegistrar(),
     ['bigrock']: new BigRockDomainRegistrar(),
-    ['nettigritty']: new NettigrittyDomainRegistrar()
+    ['nettigritty']: new NettigrittyDomainRegistrar(),
+    ['2gb hosting']: new TwoGBHostingDomainRegistrar()
 }
 
 export class DomainServices {

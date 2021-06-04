@@ -47,7 +47,7 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         await page.waitForNavigation();
 
         let innerHtml = await this.waitForSelectorAndGetInnerHtml(page, '#primarySearch > div:nth-child(3) > div > span.pricing-wrp > strong');
-        page.close();
+        await page.close();
         
         if (null == innerHtml) {
             console.warn(`Failed to get Element for ${this.properties.name} Price`);

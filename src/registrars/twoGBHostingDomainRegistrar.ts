@@ -8,10 +8,15 @@ import {
     DomainPrice
 } from '.';
 
-export class NettigrittyDomainRegistrar extends BaseDomainRegistrar implements DomainRegistrar {
+type ResponseModel = {
+    extension: string;
+    firstprice: number;
+}
+
+export class TwoGBHostingDomainRegistrar extends BaseDomainRegistrar implements DomainRegistrar {
     public properties: Registrar = {
-        name: 'Nettigritty',
-        baseUrl: 'https://www.nettigritty.com',
+        name: '2GB Hosting',
+        baseUrl: 'https://manage.2gbhosting.com',
         currencyCodes: [
             "INR"
         ],
@@ -26,24 +31,18 @@ export class NettigrittyDomainRegistrar extends BaseDomainRegistrar implements D
         _: string): Promise<DomainPrice> {
         
         let page = await browser.newPage();
-        let url = `${this.properties.baseUrl}`;
+        let url = `${this.properties.baseUrl}/domainprice.php`;
+        let tld = this.extractTLD(domainNameWithTLD);
 
         await page.setUserAgent(new UserAgents().toString());
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });
 
-        await page.waitForSelector('div > input#myInput');
-        await page.type('div > input#myInput', domainNameWithTLD);
-        await page.keyboard.press('Enter');
-        // Since Nettiritty navigates to multiple pages
-        // - has a 'loading' page before navigating to main pricing page
-        await page.waitForTimeout(2000);
-        await page.waitForNavigation({
-            waitUntil: 'networkidle2'
-        });
+        await page.waitForSelector('form > div > div > input');
+        await page.type('form > div > div > input', tld);
 
-        let innerHtml = await this.waitForSelectorAndGetInnerHtml(page, '.dca-available > div > .dca-domain-avail:not(.dca-hide-disabled) > span > span.dca-pricing');
+        let innerHtml = await this.waitForSelectorAndGetInnerHtml(page, 'table > tbody:nth-child(2) > tr > td:nth-child(2)');
         await page.close();
         
         if (null == innerHtml) {

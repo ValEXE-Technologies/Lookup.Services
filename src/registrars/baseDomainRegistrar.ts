@@ -1,7 +1,8 @@
 import { ElementHandle, Page } from 'puppeteer';
 
 export class BaseDomainRegistrar {
-    private NUMERIC_REGEXP = /[-]{0,1}[\d]*[.]{0,1}[\d]+/g;
+    private NUMERIC_REGEX = /[-]{0,1}[\d]*[.]{0,1}[\d]+/;
+    private TLD_REGEX = /\.[^.]{2,3}(?:\.[^.]{2,3})?$/;
 
     async waitForSelectorAndGetInnerHtml(
         page: Page,
@@ -19,10 +20,21 @@ export class BaseDomainRegistrar {
         return null;
     }
 
+    extractTLD(
+        domainNameWithTLD: string
+    ): string {
+        let matchArray = domainNameWithTLD.match(this.TLD_REGEX);
+        if (matchArray && matchArray.length > 0) {
+            return matchArray[0];
+        }
+
+        return null;
+    }
+
     extractPrice(
         innerHtml: string
     ): number {
-        let matchArray = innerHtml.match(this.NUMERIC_REGEXP);
+        let matchArray = innerHtml.match(this.NUMERIC_REGEX);
 
         return +matchArray;
     }

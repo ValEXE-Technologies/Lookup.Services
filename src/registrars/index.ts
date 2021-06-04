@@ -6,3 +6,4 @@ export * from './domainRegistrar';
 export * from './goDaddyDomainRegistrar';
 export * from './bigRockDomainRegistrar';
 export * from './nettigrittyDomainRegistrar';
+export * from './twoGBHostingDomainRegistrar';

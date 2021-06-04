@@ -33,7 +33,7 @@ export class GoDaddyWhoIsRegisrar implements WhoIsRegistrar {
             // Didn't find price of the domain, this means Domain is NOT available
             returnValue = false;
         } finally {
-            page.close();
+            await page.close();
         }
 
         return returnValue;

@@ -41,7 +41,7 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         });
 
         let innerHtml = await this.waitForSelectorAndGetInnerHtml(page, selector);
-        page.close();
+        await page.close();
         
         if (null == innerHtml) {
             console.warn(`Failed to get Element for ${this.properties.name} Price`);
