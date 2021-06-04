@@ -34,6 +34,7 @@ export class BaseDomainRegistrar {
     extractPrice(
         innerHtml: string
     ): number {
+        innerHtml = innerHtml.replace(',', '');
         let matchArray = innerHtml.match(this.NUMERIC_REGEX);
 
         return +matchArray;
