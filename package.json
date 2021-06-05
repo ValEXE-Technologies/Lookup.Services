@@ -4,6 +4,9 @@
     "description": "Business Services for Lookup",
     "type": "module",
     "main": "index.js",
+    "publishConfig": {
+        "registry": "https://github.com/ValEXE-Technologies/Lookup.Services"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/ValEXE-Technologies/Lookup.Services"
