@@ -1,10 +1,11 @@
 {
     "name": "@valexe-technologies/lookup.services",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "description": "Business Services for Lookup",
     "type": "module",
     "main": "index.js",
     "publishConfig": {
+        "access": "public",
         "registry": "https://github.com/ValEXE-Technologies/Lookup.Services"
     },
     "repository": {
