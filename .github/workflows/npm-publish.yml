@@ -33,7 +33,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: '@valexe-technologies'
       - run: npm ci
-      - run: npm publish
+      - run: npm version patch
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
