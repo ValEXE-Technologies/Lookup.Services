@@ -32,9 +32,13 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: '@valexe-technologies'
+      - name: Configure git
+        run: |
+          git config user.email "indra4you@outlook.com"
+          git config user.name "Indrajeet Valera"
       - run: npm ci
       - run: npm version patch
-      - run: npm publish
+      - run: npm run publish-lib-beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -50,8 +54,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+      - name: Configure git
+        run: |
+          git config user.email "indra4you@outlook.com"
+          git config user.name "Indrajeet Valera"
       - run: npm ci
       - run: npm version patch
-      - run: npm publish
+      - run: npm run publish-lib-beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

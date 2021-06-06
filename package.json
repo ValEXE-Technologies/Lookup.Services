@@ -17,7 +17,9 @@
         "url": "https://github.com/ValEXE-Technologies/Lookup.Services"
     },
     "scripts": {
-        "build": "tsc -p ."
+        "build": "tsc",
+        "publish-lib": "npm run build && npm publish",
+        "publish-lib-beta": "npm run build && npm publish --tag beta"
     },
     "author": "Indrajeet Valera",
     "license": "ISC",
