@@ -25,14 +25,10 @@ export class DomainServices {
     private domainRegistrars: Registrar[] = [];
     private browser: puppeteer.Browser = null;
     
-    constructor(
-        headLess: boolean = true
-    ) {
-        this.init(headLess)
-            .then();
+    constructor() {
     }
 
-    private async init(
+    public async init(
         headLess: boolean = true
     ) {
         this.domainRegistrars = Object.keys(SUPPORTED_DOMAIN_REGISTRARS)
