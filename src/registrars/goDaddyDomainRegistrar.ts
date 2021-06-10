@@ -1,5 +1,4 @@
 import { Browser, Page } from 'puppeteer';
-import * as UserAgents from 'user-agents';
 
 import {
     BaseDomainRegistrar,
@@ -30,7 +29,7 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         let page = await browser.newPage();
         let url = `${this.properties.baseUrl}/domainsearch/find?checkAvail=1&domainToCheck=${domainNameWithTLD}`;
 
-        await page.setUserAgent(new UserAgents().toString());
+        await this.setupUserAgent(page);
         await page.goto(this.properties.baseUrl, {
             waitUntil: 'networkidle2'
         });

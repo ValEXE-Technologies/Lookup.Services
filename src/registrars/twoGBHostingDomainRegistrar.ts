@@ -1,5 +1,4 @@
 import { Browser } from 'puppeteer';
-import * as UserAgents from 'user-agents';
 
 import {
     BaseDomainRegistrar,
@@ -29,7 +28,7 @@ export class TwoGBHostingDomainRegistrar extends BaseDomainRegistrar implements 
         let url = `${this.properties.baseUrl}/domainprice.php`;
         let tld = this.extractTLD(domainNameWithTLD);
 
-        await page.setUserAgent(new UserAgents().toString());
+        await this.setupUserAgent(page);
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });

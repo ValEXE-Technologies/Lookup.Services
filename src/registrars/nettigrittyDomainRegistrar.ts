@@ -1,5 +1,4 @@
 import { Browser } from 'puppeteer';
-import * as UserAgents from 'user-agents';
 
 import {
     BaseDomainRegistrar,
@@ -28,7 +27,7 @@ export class NettigrittyDomainRegistrar extends BaseDomainRegistrar implements D
         let page = await browser.newPage();
         let url = `${this.properties.baseUrl}`;
 
-        await page.setUserAgent(new UserAgents().toString());
+        await this.setupUserAgent(page);
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });

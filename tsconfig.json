@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "ES5",
+        "target": "ES2020",
         "module": "CommonJS",
+        "outDir": "./dist/",
         "declaration": true,
         "sourceMap": true,
-        "outDir": "./dist/",
         "removeComments": true,
         //"strict": true,
         //"noImplicitAny": true,

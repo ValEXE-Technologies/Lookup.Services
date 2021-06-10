@@ -1,5 +1,4 @@
 import { Browser, Page } from 'puppeteer';
-import * as UserAgents from 'user-agents';
 
 import {
     BaseDomainRegistrar,
@@ -34,7 +33,7 @@ export class BigRockDomainRegistrar extends BaseDomainRegistrar implements Domai
         let page = await browser.newPage();
         let url = `${this.properties.baseUrl}/domain-registration/index.php`;
 
-        await page.setUserAgent(new UserAgents().toString());
+        await this.setupUserAgent(page);
         await page.goto(url, {
             waitUntil: 'networkidle2'
         });

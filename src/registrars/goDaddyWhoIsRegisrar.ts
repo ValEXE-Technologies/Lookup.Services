@@ -1,5 +1,5 @@
 import { Browser } from 'puppeteer';
-import * as UserAgents from 'user-agents';
+import UserAgents from 'user-agents';
 
 import { WhoIsRegistrar } from './';
 
