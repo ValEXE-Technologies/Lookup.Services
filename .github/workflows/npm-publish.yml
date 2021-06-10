@@ -25,7 +25,7 @@ jobs:
       - name: Patch version
         run: |
           npm version patch
-          git push -u origin master
+          git push origin master
       - name: Building JavaScript
         run: npm run build --if-present
 
