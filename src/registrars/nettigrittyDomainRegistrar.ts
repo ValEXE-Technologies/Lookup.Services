@@ -1,4 +1,4 @@
-import { Browser, Page } from 'puppeteer';
+import { Browser } from 'puppeteer';
 import * as UserAgents from 'user-agents';
 
 import {

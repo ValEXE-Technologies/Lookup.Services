@@ -1,4 +1,4 @@
-import { ElementHandle, Page } from 'puppeteer';
+import { Page } from 'puppeteer';
 
 export class BaseDomainRegistrar {
     private NUMERIC_REGEX = /[-]{0,1}[\d]*[.]{0,1}[\d]+/;

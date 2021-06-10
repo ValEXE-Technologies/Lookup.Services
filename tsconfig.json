@@ -4,8 +4,25 @@
         "target": "ES5",
         "module": "CommonJS",
         "declaration": true,
-        "outDir": "./dist/"
+        "sourceMap": true,
+        "outDir": "./dist/",
+        "removeComments": true,
+        //"strict": true,
+        //"noImplicitAny": true,
+        //"strictNullChecks": true,
+        //"strictPropertyInitialization": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
     },
+    "exclude": [
+        "node_modules"
+    ],
     "include": [
         "src/**/*"
     ]

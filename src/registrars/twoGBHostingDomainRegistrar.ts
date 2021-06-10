@@ -1,4 +1,4 @@
-import { Browser, Page } from 'puppeteer';
+import { Browser } from 'puppeteer';
 import * as UserAgents from 'user-agents';
 
 import {
@@ -7,11 +7,6 @@ import {
     Registrar,
     DomainPrice
 } from '.';
-
-type ResponseModel = {
-    extension: string;
-    firstprice: number;
-}
 
 export class TwoGBHostingDomainRegistrar extends BaseDomainRegistrar implements DomainRegistrar {
     public properties: Registrar = {

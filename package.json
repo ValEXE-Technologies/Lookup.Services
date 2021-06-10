@@ -6,8 +6,9 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
-        "/dist"
+        "dist"
     ],
+    "homepage": "https://github.com/ValEXE-Technologies/Lookup.Services",
     "publishConfig": {
         "access": "public",
         "registry": "https://github.com/ValEXE-Technologies/Lookup.Services"
@@ -15,6 +16,9 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/ValEXE-Technologies/Lookup.Services"
+    },
+    "bugs": {
+        "url": "https://github.com/ValEXE-Technologies/Lookup.Services/issues"
     },
     "scripts": {
         "build": "tsc",
