@@ -15,22 +15,10 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          always-auth: true
           node-version: 12
-          registry-url: https://registry.npmjs.org/
-          scope: '@valexe-technologies'
-      - name: Configure git
-        run: |
-          git config user.email "indra4you@outlook.com"
-          git config user.name "Indrajeet Valera"
       - name: Install dependencies
         run: npm ci
-      - name: Patch version
-        run: |
-          npm version patch
-          git commit -m "Version patched"
-          git push -u origin master
-      - name: Converting to JavaScript
+      - name: Building JavaScript
         run: npm run build --if-present
 
   publish-npm:
