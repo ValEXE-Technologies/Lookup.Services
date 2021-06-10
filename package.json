@@ -1,6 +1,6 @@
 {
     "name": "@valexe-technologies/lookup.services",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Business Services for Lookup",
     "type": "commonjs",
     "main": "dist/index.js",
