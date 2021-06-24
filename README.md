@@ -1,25 +1,12 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/75196744/123205334-512ea280-d4d7-11eb-9e27-6f974170bbc7.png" height="140" align="middle">
-    <h2 align="center">Lookup.Services</h2>
-</p>
+## Lookup.Services
 
-<p align="center">
-    <a href="https://www.npmjs.com/package/@valexe-technologies/lookup.services">
-        <img src="https://img.shields.io/npm/v/@valexe-technologies/lookup.services" />
-    </a>
-    <a href="https://github.com/ValEXE-Technologies/Lookup.Services/issues">
-        <img src="https://img.shields.io/github/issues/ValEXE-Technologies/Lookup.Services" />
-    </a>
-    <a href="https://github.com/ValEXE-Technologies/Lookup.Services/network/members">
-        <img src="https://img.shields.io/github/forks/ValEXE-Technologies/Lookup.Services" /> 
-    </a>
-    <a href="https://github.com/ValEXE-Technologies/Lookup.Services/stargazers">
-        <img src="https://img.shields.io/github/stars/ValEXE-Technologies/Lookup.Services" />
-    </a>
-    <a href="https://github.com/ValEXE-Technologies/Lookup.Services/LICENSE">
-        <img src="https://img.shields.io/github/license/ValEXE-Technologies/Lookup.Services" />
-    </a>
-</p>
+<img src="https://user-images.githubusercontent.com/75196744/123205334-512ea280-d4d7-11eb-9e27-6f974170bbc7.png" height="140" align="right">
+
+[![npm @valexe-technologies/lookup.services package](https://img.shields.io/npm/v/@valexe-technologies/lookup.services)](https://www.npmjs.com/package/@valexe-technologies/lookup.services)
+[![github @valexe-technologies/lookup.services issues](https://img.shields.io/github/issues/ValEXE-Technologies/Lookup.Services)](https://github.com/ValEXE-Technologies/Lookup.Services/issues)
+[![github @valexe-technologies/lookup.services forks](https://img.shields.io/github/forks/ValEXE-Technologies/Lookup.Services)](https://github.com/ValEXE-Technologies/Lookup.Services/network/members)
+[![github @valexe-technologies/lookup.services stargazers](https://img.shields.io/github/stars/ValEXE-Technologies/Lookup.Services)](https://github.com/ValEXE-Technologies/Lookup.Services/stargazers)
+[![github @valexe-technologies/lookup.services license](https://img.shields.io/github/license/ValEXE-Technologies/Lookup.Services)](https://github.com/ValEXE-Technologies/Lookup.Services/LICENSE)
 
 > Developes are welcome to extend support to integrate their preferred Domain Registrar
 
@@ -74,10 +61,18 @@ node index.js
 
 It will print list of supported `Currencies` as JSON object.
 
-```
+```json
 [
-  { code: "INR", symbol: "₹", name: "Indian Rupee" },
-  { code: "USD", symbol: "$", name: "United States of America" }
+  {
+    "code": "INR",
+    "symbol": "₹",
+    "name": "Indian Rupee"
+  },
+  {
+    "code": "USD",
+    "symbol": "$",
+    "name": "United States of America"
+  }
 ]
 ```
 
@@ -112,19 +107,19 @@ node index.js
 
 It will print list of supported `Registrars` as JSON object.
 
-```
+```json
 [
   {
-    name: "GoDaddy",
-    baseUrl: "https://in.godaddy.com",
-    currencyCodes: [ "INR", "USD" ],  
-    features: [ "Basic DNS" ]
+    "name": "GoDaddy",
+    "baseUrl": "https://in.godaddy.com",
+    "currencyCodes": [ "INR", "USD" ],  
+    "features": [ "Basic DNS" ]
   },
   {
-    name: "BigRock",
-    baseUrl: "https://www.bigrock.in",
-    currencyCodes: [ "INR", "USD" ],
-    features: [
+    "name": "BigRock",
+    "baseUrl": "https://www.bigrock.in",
+    "currencyCodes": [ "INR", "USD" ],
+    "features": [
       "Basic DNS",
       "2 Email Accounts",
       "Domain Forwarding",
@@ -132,8 +127,7 @@ It will print list of supported `Registrars` as JSON object.
       "DNS Management",
       "Domain Theft Protection"
     ]
-  },
-  ...
+  }
 ]
 ```
 
@@ -172,7 +166,7 @@ node index.js
 
 It will print `true` if domain is available or `false` if domain is not available.
 
-```
+```json
 true or false
 ```
 
@@ -213,6 +207,9 @@ node index.js
 
 It will print `Registrar` URL and domain `Price` as JSON object.
 
-```
-{ url: "https://www.bigrock.in", price: 799 }
+```json
+{
+  "url": "https://www.bigrock.in",
+  "price": 799
+}
 ```
