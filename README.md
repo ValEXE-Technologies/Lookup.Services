@@ -74,7 +74,7 @@ node index.js
 
 It will print list of supported `Currencies` as JSON object.
 
-```json
+```
 [
   { code: "INR", symbol: "₹", name: "Indian Rupee" },
   { code: "USD", symbol: "$", name: "United States of America" }
@@ -112,7 +112,7 @@ node index.js
 
 It will print list of supported `Registrars` as JSON object.
 
-```json
+```
 [
   {
     name: "GoDaddy",
@@ -172,7 +172,7 @@ node index.js
 
 It will print `true` if domain is available or `false` if domain is not available.
 
-```json
+```
 true or false
 ```
 
@@ -213,6 +213,6 @@ node index.js
 
 It will print `Registrar` URL and domain `Price` as JSON object.
 
-```json
+```
 { url: "https://www.bigrock.in", price: 799 }
 ```
