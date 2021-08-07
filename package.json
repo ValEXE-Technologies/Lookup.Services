@@ -1,12 +1,25 @@
 {
     "name": "@valexe-technologies/lookup.services",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Business Services for Lookup",
     "type": "commonjs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist"
+    ],
+    "keywords": [
+        "nodejs",
+        "typescript",
+        "puppeteer",
+        "lookup",
+        "api",
+        "domain",
+        "domain-registrar",
+        "domain-availability",
+        "domain-availability-checker",
+        "domain-price",
+        "domain-price-checker"
     ],
     "homepage": "https://github.com/ValEXE-Technologies/Lookup.Services",
     "publishConfig": {

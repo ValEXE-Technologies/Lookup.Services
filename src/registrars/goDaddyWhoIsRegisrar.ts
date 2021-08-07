@@ -24,7 +24,7 @@ export class GoDaddyWhoIsRegisrar implements WhoIsRegistrar {
 
         try {
             await page.waitForSelector(
-                '#exact-match > div > div > div > div > div > div.mb-3', {
+                'span[data-cy="availableCard-badge"]', {
                 timeout: 5000
             });
         } catch (err) {

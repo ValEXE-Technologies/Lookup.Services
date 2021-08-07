@@ -25,7 +25,7 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         domainNameWithTLD: string,
         currency: string): Promise<DomainPrice> {
         
-        const selector = '#exact-match > div > div > div > div > div > div.mb-3 > span.d-inline';
+        const selector = 'div:nth-child(1) > div > div > div.text-sm-center.mt-1 > span:nth-child(1) > div > span.text-nowrap > span.main-price';
         let page = await browser.newPage();
         let url = `${this.properties.baseUrl}/domainsearch/find?checkAvail=1&domainToCheck=${domainNameWithTLD}`;
 
@@ -58,12 +58,12 @@ export class GoDaddyDomainRegistrar extends BaseDomainRegistrar implements Domai
         page: Page,
         currency: string
     ): Promise<void> {
-        let innerHtml = await page.$eval('div > #currentCurrency', (el) => el.innerHTML);
+        let innerHtml = await page.$eval('a > #currentCurrency', (el) => el.innerHTML);
         if (null == innerHtml) {
             return;
         }
 
-        innerHtml = innerHtml.toUpperCase();
+        innerHtml = innerHtml.trim().toUpperCase();
         currency = currency.toUpperCase();
         if (innerHtml.includes(currency)) {
             return;
